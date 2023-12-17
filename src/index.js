@@ -5,5 +5,5 @@ import EventBasic from './event';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <EventBasic type={"motoshi"}/>
+  <EventBasic init={"inoue"}/>
 );

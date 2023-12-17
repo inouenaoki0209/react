@@ -1,20 +1,22 @@
-export default function EventBasic({ type }) {
-    const login = () => {
-        switch (type) {
-            case '0209':
-                window.alert('0209にログインします')
-                break;
-            case 'inoue':
+import { useState } from "react";
+import { useRef } from "react";
+export default function EventBasic({ init }) {
+    const [pass, setPass] = useState(init);
+    const login = useRef()
+    const handleClick = () => {
+        const pass = login.current.value
+        setPass(() => {
+            if (pass === 'inoue') {
                 window.alert('inoue にログインします')
-                break;
-            default:
-                window.alert('password が違います')
-                break;
-        };
+            } else {
+                window.alert('passwordが違います')
+            }
+        })
     }
-    return(
+    return (
         <div>
-    <button onClick={login}>ログイン</button>
+            <input type = 'text' ref>= {login}</input>
+            <button onClick={handleClick}>ログイン</button>
         </div>
     )
 }
