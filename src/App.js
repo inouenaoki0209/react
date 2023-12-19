@@ -1,18 +1,14 @@
 import { useState } from "react";
 import "./App.css"
-
+import { BrowserRouter, Link, Switch, Route, Routes } from "react-router-dom";
 function App() {
     const initialValues = { username: "", mailAddress: "", passWord: "" };
     const [formValues, setFormValues] = useState(initialValues);
 
     const handleChange = (e) => {
-        // console.log(e.target.value);
         const { name, value } = e.target
         setFormValues({ ...formValues, [name]: value })
         console.log(formValues);
-        // if (formValues.username === 'inoue') {
-        //     window.alert('inoue にログインします')
-        // }
     }
     const mailChange = (e) => {
         const { name, value } = e.target;
@@ -27,12 +23,15 @@ function App() {
     }
 
     const login = () => {
-        if (formValues.username === "inoue" && formValues.mailAddress === "nao") {
+        if (formValues.username === "inoue" && formValues.mailAddress === 'nao' && formValues.passWord === 'ki') {
             window.alert('inoue にログインします')
-        }else{
+        } else {
             window.alert('パスワードが違います')
         }
     }
+    const signUp = () => [
+        window.alert('新たにアカウントを作成します')
+    ]
     return (
         <div className="formContainer">
             <form>
@@ -58,6 +57,7 @@ function App() {
                         }}></input>
                     </div>
                     <button className="submitButton" onClick={login}>ログイン</button>
+                    <button className="newAccount" onClick={signUp}>新規登録はこちら</button>
                 </div>
             </form>
         </div>
