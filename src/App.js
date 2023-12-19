@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css"
+
 function App() {
     const initialValues = { username: "", mailAddress: "", passWord: "" };
     const [formValues, setFormValues] = useState(initialValues);
@@ -22,12 +23,19 @@ function App() {
     }
 
     const login = () => {
-        if (formValues.username === "inoue" && formValues.mailAddress === 'nao' && formValues.passWord === 'ki') {
+        if (formValues.username === "inoue" && formValues.mailAddress === 'naoki' && formValues.passWord === 'inonao') {
             window.alert('inoue にログインします')
+        } else if (formValues.username.length < 3) {
+            window.alert('ユーザー名は3文字以上入力してください')
+        } else if (formValues.mailAddress.length < 3) {
+            window.alert('メールアドレスは3文字以上入力してください')
+        } else if (formValues.passWord.length < 3) {
+            window.alert('パスワードは3文字以上入力してください')
         } else {
-            window.alert('パスワードが違います')
+            window.alert('ログインに失敗しました')
         }
     }
+
     const signUp = () => [
         window.alert('新たにアカウントを作成します')
     ]
