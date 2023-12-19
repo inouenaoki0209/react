@@ -1,6 +1,5 @@
 import { useState } from "react";
 import "./App.css"
-import { BrowserRouter, Link, Switch, Route, Routes } from "react-router-dom";
 function App() {
     const initialValues = { username: "", mailAddress: "", passWord: "" };
     const [formValues, setFormValues] = useState(initialValues);
